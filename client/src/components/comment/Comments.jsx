@@ -89,8 +89,7 @@ const PostItem = (props) => {
     <div className="wrapper">
 
         <div className="input-box">
-                <h4 className="user"><img className='nf-pic' src={`http://localhost:8000/img/${props.picture}`}></img>@{props.username}</h4><p>{props.message} </p>
-                <br/>
+                <h4 className="user"><img className='nf-pic' src={`http://localhost:8000/img/${props.picture}`}></img>@{props.username}</h4><p className='message'>{props.message} </p>
                 <p className="card-text"><small>{props.time_stamp } {props.privacy?
             <>  
                 <i class="fa fa-lock" aria-hidden="true"></i>
@@ -101,7 +100,7 @@ const PostItem = (props) => {
                 <span>Public</span>
             </> }</small></p>
             <button onClick={()=> setReply(prev => !prev)} className="reply">Reply</button>
-            <button onClick={()=> setshowComment(prev => !prev)} className="toggle">Comments</button>
+            <button onClick={()=> setshowComment(prev => !prev)} className="show-comments">Comments</button>
             <div className="comment-area">
             {reply?
                 <form onSubmit={onSubmitForm}>
@@ -120,7 +119,7 @@ const PostItem = (props) => {
                 return <div className="wrapper" key={comment.comment_id}>
 
                 <div className="input-box">
-                    <h4 className="user"><img className='nf-pic' src={`http://localhost:8000/img/${comment.filename}`}></img>@{comment.username}</h4><p>{comment.message}</p>
+                    <h4 className="user"><img className='nf-pic' src={`http://localhost:8000/img/${comment.filename}`}></img>@{comment.username}</h4><p className='message'>{comment.message}</p>
                     <p className="card-text"> <small>{comment.time_stamp = moment(comment.time_stamp).format("llll")} </small></p>
                     {(comment.uuid === user.uuid)&& <DeleteComment comment={comment}/>}
                     {/* <button onClick={e => onDeleteComment(comment.comment_id)} className="delete">Delete</button> */}

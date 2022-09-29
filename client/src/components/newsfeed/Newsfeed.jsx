@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PostItem from "../post/PostItem";
+import Comments from '../comment/Comments';
 import moment from "moment";
 
 const Newsfeed = () => {
@@ -52,7 +52,7 @@ const Newsfeed = () => {
             <br/>
             <br/>
         <div>{posts.map(post => {
-            return <PostItem 
+            return <Comments 
                         key = {post.id}
                         id = {post.id}
                         picture = {post.filename}

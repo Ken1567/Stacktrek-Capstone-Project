@@ -49,7 +49,7 @@ const Signup = ({ setAuth }) => {
     return (
         <>
         <div className="form-row">
-        <h2>Register</h2>
+        <h2 className="header">Register</h2>
         
             <form onSubmit={onSubmitForm}>
                 <div className="form-row">
@@ -98,7 +98,7 @@ const Signup = ({ setAuth }) => {
                 </div>
                 <div className="form-row"></div>
                 <div className="form-row">
-                    <button id="signup">Submit</button>
+                    <button className="signup">Submit</button>
                 </div>
             </form>
             <Link to="/login"><button className="login">Login</button></Link>

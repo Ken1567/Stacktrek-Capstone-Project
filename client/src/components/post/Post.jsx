@@ -117,7 +117,7 @@ const Post = ({ setAuth }) => {
     return (
 
         <>
-                <h1>Express</h1>
+                <h1 className="header">Express</h1>
             <form onSubmit={onSubmitForm}>
             <div className="wrapper">
                 <div className="input-box">
@@ -162,8 +162,7 @@ const Post = ({ setAuth }) => {
 
                             <div className="input-box">
                                 <h4 className="user" ><DisplayPhoto />@{post.username}</h4>
-                                <p>{post.message}</p>
-                                <br/>
+                                <p className="message">{post.message}</p>
                                 <p className="card-text"> <small>{post.time_stamp = moment(post.time_stamp).format("llll")} {post.privacy?
                                 <>  
                                     <i class="fa fa-lock" aria-hidden="true"></i>
