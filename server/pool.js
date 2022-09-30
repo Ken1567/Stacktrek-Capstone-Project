@@ -1,13 +1,27 @@
 import  pg  from  "pg"
-function  connectDatabase(){
-	const  pool = new  pg.Pool ({
+import dotenv from "dotenv"
+dotenv.config(	)
 
-		user :  'postgres',
-		password :  '1234',
-		database :  'Users',
-		host :  'localhost'
-
-	})
-		return  pool
+const prodConfig = {
+	connectionString : process.env.DATABASE_URL,
+	ssl: {
+		rejectUnauthorized: false
 	}
+}
+
+const connectDatabase = () => {
+	const pool = new pg.Pool(prodConfig)
+	return pool
+}
+// function  connectDatabase(){
+// 	const  pool = new  pg.Pool ({
+
+// 		user :  'postgres',
+// 		password :  '1234',
+// 		database :  'Users',
+// 		host :  'localhost'
+
+// 	})
+// 		return  pool
+// 	}
 export { connectDatabase }
