@@ -89,7 +89,7 @@ const PostItem = (props) => {
     <div className="wrapper">
 
         <div className="input-box">
-                <h4 className="user"><img className='nf-pic' src={`http://localhost:8000/img/${props.picture}`}></img>@{props.username}</h4><p className='message'>{props.message} </p>
+                <h4 className="user"><img className='nf-pic' src={`https://capstone-project-server-side.herokuapp.com/img/${props.picture}`}></img>@{props.username}</h4><p className='message'>{props.message} </p>
                 <p className="card-text"><small>{props.time_stamp } {props.privacy?
             <>  
                 <i class="fa fa-lock" aria-hidden="true"></i>
