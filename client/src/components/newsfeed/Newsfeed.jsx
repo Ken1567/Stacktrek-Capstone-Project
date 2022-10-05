@@ -10,7 +10,7 @@ const Newsfeed = () => {
         try {
             //fetch api that uses the GET method
             const response = await fetch(
-                "http://localhost:8000/newsfeed",
+                "https://capstone-project-server-side.herokuapp.com/newsfeed",
                 {
                     method: "GET",
                     //retrieving the token and putting it in the Auth header

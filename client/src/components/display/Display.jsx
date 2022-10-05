@@ -7,7 +7,7 @@ const DisplayPhoto = () => {
     const getPictures = async () => {
         try {
             const response = await fetch(
-                `http://localhost:8000/photos`, {
+                `https://capstone-project-server-side.herokuapp.com/photos`, {
                 method: "GET",
                 headers: { Authorization: "Bearer " + localStorage.getItem('token') }
             }
@@ -36,7 +36,7 @@ const DisplayPhoto = () => {
     return (
         <div>
             {pics.map( pic => {
-                let url = `http://localhost:8000/img/${pic.filename}`
+                let url = `https://capstone-project-server-side.herokuapp.com/img/${pic.filename}`
                 return <div key={pic.pic_id}>
                     <img src={url} className="img-thumbnail" alt="..."></img>
                      </div>

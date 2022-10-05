@@ -22,7 +22,7 @@ const Signup = ({ setAuth }) => {
         const body = {firstname, lastname, username, password, birthdate, emailAdd}
 
         const response = await fetch(
-            "http://localhost:8000/register",
+            "https://capstone-project-server-side.herokuapp.com/register",
             {
                 method: "POST",
                 headers: {

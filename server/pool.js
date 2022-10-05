@@ -1,27 +1,31 @@
-import  pg  from  "pg"
+import pg from "pg"
 import dotenv from "dotenv"
-dotenv.config(	)
+dotenv.config()
 
 const prodConfig = {
-	connectionString : process.env.DATABASE_URL,
-	ssl: {
-		rejectUnauthorized: false
-	}
+    connectionString: process.env.DATABASE_URL,
+    ...(process.env.NODE_ENV === "production" &&
+        {
+            ssl: {
+                rejectUnauthorized: false
+            }
+        })
+
 }
 
 const connectDatabase = () => {
-	const pool = new pg.Pool(prodConfig)
-	return pool
-}
-// function  connectDatabase(){
-// 	const  pool = new  pg.Pool ({
+        const pool = new pg.Pool(prodConfig)
+        return pool
+    }
+    // function connectDatabase() {
+    //     const pool = new pg.Pool({
 
-// 		user :  'postgres',
-// 		password :  '1234',
-// 		database :  'Users',
-// 		host :  'localhost'
+//         user: 'postgres',
+//         password: '1234',
+//         database: 'Users',
+//         host: 'localhost'
 
-// 	})
-// 		return  pool
-// 	}
+//     })
+//     return pool
+// }
 export { connectDatabase }

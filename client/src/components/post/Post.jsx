@@ -34,7 +34,7 @@ const Post = ({ setAuth }) => {
 
             //fetch api for POST method
             const response = await fetch(
-                "http://localhost:8000/post",
+                "https://capstone-project-server-side.herokuapp.com/post",
                 {
                     method: "POST",
                     headers: {
@@ -73,7 +73,7 @@ const Post = ({ setAuth }) => {
         try {
             //fetch api that uses the GET method
             const response = await fetch(
-                "http://localhost:8000/post",
+                "https://capstone-project-server-side.herokuapp.com/post",
                 {
                     method: "GET",
                     //retrieving the token and putting it in the Auth header
@@ -106,7 +106,7 @@ const Post = ({ setAuth }) => {
         const onDeletePost =  (id) => {
             console.log(id)
             fetch(
-                `http://localhost:8000/post/${id}`,
+                `https://capstone-project-server-side.herokuapp.com/post/${id}`,
                 {
                     method: "DELETE",
                     //retrieving the token and putting it in the Auth header

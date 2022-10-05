@@ -16,7 +16,7 @@ const PostItem = (props) => {
         try {
             //fetch api that uses the GET method
             const response = await fetch(
-                `http://localhost:8000/comment/${props.id}`,
+                `https://capstone-project-server-side.herokuapp.com/comment/${props.id}`,
                 {
                     method: "GET",
                     //retrieving the token and putting it in the Auth header
@@ -65,7 +65,7 @@ const PostItem = (props) => {
             console.log(message, post_id)
 
             const response = await fetch(
-                "http://localhost:8000/comment",
+                "https://capstone-project-server-side.herokuapp.com/comment",
                 {
                     method: "POST",
                     headers: {

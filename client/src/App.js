@@ -28,7 +28,7 @@ function App() {
 
 useEffect(() =>{
   fetch(
-    `http://localhost:8000/userinfo`,
+    `https://capstone-project-server-side.herokuapp.com/userinfo`,
     {
       method: "GET",
       headers: { Authorization: "Bearer " + localStorage.getItem('token') }
