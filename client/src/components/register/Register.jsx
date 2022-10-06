@@ -83,7 +83,7 @@ const Signup = ({ setAuth }) => {
                     <span>Password</span>
                 </div>
                 <div className="form-row">
-                    <input type="text" required
+                    <input type="date" required
                     name="birthdate" 
                     value={birthdate} 
                     onChange={e => onChange(e)}/>

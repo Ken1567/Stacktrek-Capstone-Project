@@ -7,7 +7,6 @@ import userContext from '../../context/userContext';
 
 const PostItem = (props) => {
     const [showComment, setshowComment] = useState(false);
-    const [showDelete, setShowDelete] = useState("");
     const [posts, setPost] = useState([]);
     // const [polling, setPolling] = useState();
     const [reply, setReply] = useState(false);
@@ -45,17 +44,6 @@ const PostItem = (props) => {
         }
     },[])
 
-    // const onDeleteComment = async (comment_id) => {
-    //     const response = await fetch(
-    //         `http://localhost:8000/comment/${comment_id}`,
-    //         {
-    //             method: "DELETE",
-    //             headers: { Authorization: "Bearer " + localStorage.getItem('token') }
-    //         })
-    //         if (!response.ok){
-    //             return alert("Invalid Action")
-    //         }
-    // }
 
     const onSubmitForm = async (e) => {
         e.preventDefault()
