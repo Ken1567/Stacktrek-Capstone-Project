@@ -119,7 +119,7 @@ const PostItem = (props) => {
                 return <div className="wrapper" key={comment.comment_id}>
 
                 <div className="input-box">
-                    <h4 className="user"><img className='nf-pic' src={`http://localhost:8000/img/${comment.filename}`}></img>@{comment.username}</h4><p className='message'>{comment.message}</p>
+                    <h4 className="user"><img className='nf-pic' src={`https://capstone-project-server-side.herokuapp.com/img/${comment.filename}`}></img>@{comment.username}</h4><p className='message'>{comment.message}</p>
                     <p className="card-text"> <small>{comment.time_stamp = moment(comment.time_stamp).format("llll")} </small></p>
                     {(comment.uuid === user.uuid)&& <DeleteComment comment={comment}/>}
                     {/* <button onClick={e => onDeleteComment(comment.comment_id)} className="delete">Delete</button> */}
