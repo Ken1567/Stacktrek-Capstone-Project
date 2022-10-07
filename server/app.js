@@ -47,13 +47,44 @@ app.post('/register', async(req, res) => {
             emailAdd
         } = req.body
 
-        //Check if the user is already existing
+        //Check if the user and if email is already existing or valid
         const user = await pool.query(`SELECT * FROM users WHERE
         username = $1`, [username])
 
         if (user.rows.length > 0) {
             res.status(401).send("User already exists")
         }
+
+        const email = await pool.query(`SELECT * from users WHERE 
+        email = $1`, [emailAdd])
+
+        if (email.rows.length > 0) {
+            res.status(401).send("Email has been used")
+        }
+
+        // const validateEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // if (email.value.match(validateEmail)) {
+        //     alert("Valid email address!");
+        //     return true
+        // } else {
+        //     alert("Invalid email address!");
+        //     return false
+        // }
+        // }
+        // const validatePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+        // if (password.value.match(validatePassword)) {
+        //     alert("Valid Password")
+        // } else {
+        //     alert("Invalid Password! Password should be 8-16 characters long and should contain \
+        //     at least one numeric digit, one uppercase and one lowercase letter")
+        // }
+
+
+
+        // validate password 
+        // if (password.length < 8 && password.length > 16) {
+        //     alert("Password should be 8-16 characters long")
+        // }
 
         //Setup Bcrypt for password hashing
 

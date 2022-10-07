@@ -50,7 +50,7 @@ const Profile = () => {
                       <div className="edit-btn">{
                         showPhoto?
                         <>  
-                            <button onClick={()=> setShowPhoto(prev => !prev)}>Save Photo</button>
+                            <button onClick={()=> setShowPhoto(prev => !prev)}>Save</button>
                         </>:
                         <>
                             <button onClick={()=> setShowPhoto(prev => !prev)}>Edit Photo</button>
@@ -68,10 +68,6 @@ const Profile = () => {
                         You can contact me here: <b>{emailadd}</b>
                       </p>
                 </div>
-                {/* <div className="user-follows">
-                    <div><b>613</b> Following</div>
-                    <div><b>471</b> Followers</div>
-                </div> */}
               </div>
             </div>
           </div>

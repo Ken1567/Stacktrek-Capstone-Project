@@ -77,6 +77,7 @@ const Signup = ({ setAuth }) => {
                 </div>
                 <div className="form-row">
                     <input type="password" required
+                    input maxLength={16}
                     name="password" 
                     value={password} 
                     onChange={e => onChange(e)}/>
