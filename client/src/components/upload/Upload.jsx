@@ -1,52 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
-const UploadPhoto = ( ) => {
-    const [image, setImage] = useState({})
+const UploadPhoto = () => {
+  const [image, setImage] = useState({});
 
-    const fileOnChange = (e) => {
-        setImage(e.target.files[0])
-        console.log(image)
+  const fileOnChange = (e) => {
+    setImage(e.target.files[0]);
+    console.log(image);
+  };
+
+  const sendImage = async () => {
+    try {
+      let formData = new FormData();
+
+      formData.append("my-image", image);
+
+      const newImage = await fetch(`http://localhost:8000/upload`, {
+        method: "POST",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        body: formData,
+      });
+    } catch (error) {
+      console.log(error.message);
     }
+  };
+  useEffect(() => {
+    var polling;
+    const updatePosts = async () => {
+      await sendImage();
+      polling = setTimeout(updatePosts, 1000);
+    };
+    polling = setTimeout(updatePosts, 1000);
 
-    const sendImage = async () => {
-        try {
+    return () => {
+      clearTimeout(polling);
+    };
+  }, []);
 
-            let formData = new FormData()
+  return (
+    <div>
+      <input type="file" onChange={fileOnChange}></input>
+      <button onClick={sendImage}>Upload</button>
+    </div>
+  );
+};
 
-            formData.append("my-image", image)
-
-            const newImage = await fetch(`https://capstone-project-server-side.herokuapp.com/upload`, {
-                method: "POST",
-                headers: { Authorization: "Bearer " + localStorage.getItem('token') },
-                body: formData
-            })
-
-            
-            
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
-    useEffect(() => {
-        var polling
-        const updatePosts= async () => {
-            await sendImage()
-            polling = setTimeout(updatePosts, 1000)
-        }
-        polling = setTimeout(updatePosts, 1000)
-
-        return () => {
-            clearTimeout(polling)
-        }
-    },[])
-    
-
-    return (
-        <div>
-            <input type="file" onChange={fileOnChange}></input>
-            <button onClick={sendImage}>Upload</button>
-        </div>
-    )
-}
-
-export default UploadPhoto
+export default UploadPhoto;

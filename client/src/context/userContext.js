@@ -1,7 +1,7 @@
 import React from "react";
 
 const userContext = React.createContext({
-    uuid: null
-})
+  uuid: null,
+});
 
-export default userContext
+export default userContext;
