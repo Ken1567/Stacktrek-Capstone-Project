@@ -6,7 +6,7 @@ const DisplayPhoto = () => {
   // const [polling, setPolling] = useState();
   const getPictures = async () => {
     try {
-      const response = await fetch(`https://capstone-project-server-side.herokuapp.com/photos`, {
+      const response = await fetch(`http://localhost:8000/photos`, {
         method: "GET",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       });
