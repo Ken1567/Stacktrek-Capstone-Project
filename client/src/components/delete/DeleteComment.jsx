@@ -4,7 +4,7 @@ const DeleteComment = (props) => {
   const handleDelete = async (comment_id) => {
     try {
       const response = await fetch(
-        `https://capstone-project-server-side.herokuapp.com/comment/${comment_id}`,
+        `http://localhost:8000/comment/${comment_id}`,
         {
           method: "DELETE",
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },

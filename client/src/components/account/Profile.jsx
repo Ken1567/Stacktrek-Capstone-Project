@@ -14,8 +14,8 @@ const Profile = () => {
     try {
       //fetch api that uses the GET method
       const response = await fetch(
-        "https://capstone-project-server-side.herokuapp.com/profile",
-        // "http://localhost:8000/profile",
+        // "https://capstone-project-server-side.herokuapp.com/profile",
+        "http://localhost:8000/profile",
         {
           method: "GET",
           //retrieving the token and putting it in the Auth header

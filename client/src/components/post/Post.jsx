@@ -32,7 +32,7 @@ const Post = ({ setAuth }) => {
       console.log(body);
 
       //fetch api for POST method
-      const response = await fetch("https://capstone-project-server-side.herokuapp.com/post", {
+      const response = await fetch("http://localhost:8000/post", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -66,7 +66,7 @@ const Post = ({ setAuth }) => {
   const getPost = async () => {
     try {
       //fetch api that uses the GET method
-      const response = await fetch("https://capstone-project-server-side.herokuapp.com/post", {
+      const response = await fetch("http://localhost:8000/post", {
         method: "GET",
         //retrieving the token and putting it in the Auth header
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -95,7 +95,7 @@ const Post = ({ setAuth }) => {
 
   const onDeletePost = (id) => {
     console.log(id);
-    fetch(`https://capstone-project-server-side.herokuapp.com/post/${id}`, {
+    fetch(`http://localhost:8000/post/${id}`, {
       method: "DELETE",
       //retrieving the token and putting it in the Auth header
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },

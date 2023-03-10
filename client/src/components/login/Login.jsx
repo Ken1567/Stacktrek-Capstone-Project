@@ -23,7 +23,7 @@ const Login = ({ setUserSaved, setAuth }) => {
       const body = { username, password };
 
       //fetch api for POST method
-      const response = await fetch("https://capstone-project-server-side.herokuapp.com/login", {
+      const response = await fetch("http://localhost:8000/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

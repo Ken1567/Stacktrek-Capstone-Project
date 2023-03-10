@@ -14,7 +14,7 @@ const UploadPhoto = () => {
 
       formData.append("my-image", image);
 
-      const newImage = await fetch(`https://capstone-project-server-side.herokuapp.com/upload`, {
+      const newImage = await fetch(`http://localhost:8000/upload`, {
         method: "POST",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
         body: formData,

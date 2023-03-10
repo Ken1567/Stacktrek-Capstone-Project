@@ -32,7 +32,7 @@ const DisplayPhoto = () => {
   return (
     <div>
       {pics.map((pic) => {
-        let url = `https://capstone-project-server-side.herokuapp.com/img/${pic.filename}`;
+        let url = `http://localhost:8000/img/${pic.filename}`;
         return (
           <div key={pic.pic_id}>
             <img src={url} className="img-thumbnail" alt="..."></img>
