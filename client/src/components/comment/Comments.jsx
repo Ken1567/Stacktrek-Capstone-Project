@@ -14,8 +14,8 @@ const PostItem = (props) => {
     try {
       //fetch api that uses the GET method
       const response = await fetch(
-        // `https://capstone-project-server-side.herokuapp.com/comment/${props.id}`,
-        `http://localhost:8000/comment/${props.id}`,
+        `https://capstone-project-server-side.herokuapp.com/comment/${props.id}`,
+        // `http://localhost:8000/comment/${props.id}`,
         {
           method: "GET",
           //retrieving the token and putting it in the Auth header
@@ -51,7 +51,7 @@ const PostItem = (props) => {
       const post_id = props.id;
       console.log(message, post_id);
 
-      const response = await fetch("http://localhost:8000/comment", {
+      const response = await fetch("https://capstone-project-server-side.herokuapp.com/comment", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -74,7 +74,7 @@ const PostItem = (props) => {
         <h4 className="user">
           <img
             className="nf-pic"
-            src={`http://localhost:8000/img/${props.picture}`}
+            src={`https://capstone-project-server-side.herokuapp.com/img/${props.picture}`}
           ></img>
           @{props.username}
         </h4>

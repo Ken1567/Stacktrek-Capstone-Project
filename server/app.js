@@ -10,8 +10,8 @@ import multer from "multer";
 
 const pool = connectDatabase();
 const app = express();
-const PORT = 8000;
-// const PORT = process.env.PORT || 8000;
+// const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/img", express.static("public/uploads"));
 
 //multer storage
-// saan ilalagay and then yung filename
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./public/uploads");
